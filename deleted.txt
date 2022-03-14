@@ -1,0 +1,6 @@
+public void GetDigitsNumber(string str)
+    {
+        digNum = str;
+        print(digNum);
+    }
+

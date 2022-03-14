@@ -1,0 +1,68 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class GameManager : MonoBehaviour
+{
+    private GameObject[] gameManagers;
+    
+    private int digNum;
+    private int delay;
+    
+    public GameObject digNumObj;
+    public GameObject delayObj;
+
+    public GameObject inputDigits;
+    public GameObject inputDelay;
+
+    private TouchScreenKeyboard keyboard;
+
+    private void Awake()
+    {
+        gameManagers = GameObject.FindGameObjectsWithTag("GameManager");
+
+        if (gameManagers.Length > 1)
+        {
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
+
+        // enable to input integers only
+        inputDigits.GetComponent<InputField>().characterValidation = InputField.CharacterValidation.Integer;
+        inputDelay.GetComponent<InputField>().characterValidation = InputField.CharacterValidation.Integer;
+    }
+
+    // return -1 if value was not supplied
+    public int GetDigitsNumber()
+    {
+        if (digNumObj.GetComponent<Text>().text != "")
+        {
+            digNum = int.Parse(digNumObj.GetComponent<Text>().text);
+            print(digNum);
+            return digNum;
+        }
+        
+        return -1;
+    }
+    
+    // return -1 if value was not supplied
+    public int GetDelay()
+    {
+        if (delayObj.GetComponent<Text>().text != "")
+        {
+            delay = int.Parse(delayObj.GetComponent<Text>().text);
+            print(delay);
+            return delay;
+        }
+
+        return -1;
+    }
+
+    public void OpenKeyboard()
+    {
+        keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
+    }
+}

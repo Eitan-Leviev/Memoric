@@ -1,0 +1,74 @@
+# making mobile apps
+
+https://www.youtube.com/watch?v=sf9_ingF57s
+
+
+# preview your game on Android device
+
+https://www.youtube.com/watch?v=iCXwaehzRFQ
+
+
+# build
+
+https://www.youtube.com/watch?v=Nb62z3J4A_A&t=457s
+
+https://www.youtube.com/watch?v=Nb62z3J4A_A
+
+
+# How to use GitHub with Unity
+
+https://www.youtube.com/watch?v=qpXxcvS-g3g
+
+
+# How to get text from INPUT FIELD in Unity
+
+https://www.youtube.com/watch?v=guelZvubWFY
+
+
+# mobile keyboard unity
+
+https://www.youtube.com/watch?v=YYqhoesUVA8
+
+https://stackoverflow.com/questions/36046136/unity-android-touchscreenkeyboard-does-not-appear
+*   probablly will work only after build
+
+
+# digits reading records
+
+https://evolution.voxeo.com/library/audio/prompts/numbers/index.jsp
+
+נשמע טוב אבל אנגלית וגם בתשלום
+https://soundbible.com/tags-zero.html
+
+אבל בתשלום
+https://www.soundsnap.com/search/audio/number/score
+
+אין 0, וצריך להירשם
+https://www.storyblocks.com/audio/search/numbers+sound+effect?media-type=sound-effects
+
+תוכנת הקראה בעברית!! חינמי, אבל לרשומים. א-ב-ל כשמורידים שמע, זה עם צלילי רקע
+https://app.almareader.com/
+
+
+
+***
+
+ויתרתי על גיבוי בגיט. לא מצליח לגבה פרוייקט יוניטי בגיט למרות שכל ההגדרות מוגדרות כמו שצריך. מופיעות שגיאות
+
+כנראה הופעת מקלדת תעבוד רק אחרי ייצוא אז בינתיים ממשיך את האפליקציה בעיקר דרך המחשב
+
+
+
+***
+
+בעיות:
+
+מאורע של כפתור מתאפס כאשר יש טעינת הסצנה מחדש
+לכן כפתור "בית" לא יכול להיות מושמש כרגע
+המשך - בעיה נפתרה, אפשר לגשת לכפתור דרך הסקריפט, כנראה
+אבל בעיה חדשה היא שאין רפרנסים להרבה אובייקטים שגררנו ידנית אז צריך לגשת אליהם דרך סקריפט. פתיר אבל זמן.
+כרגע מעיף את כתפור "בית" הזה
+
+
+
+

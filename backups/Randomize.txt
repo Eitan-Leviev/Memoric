@@ -1,0 +1,57 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using Random = System.Random;
+
+public class Randomize : MonoBehaviour
+{
+    private int currIndex = 0;
+    private float readingTime = 0.5f;
+    private Random rnd = new Random();
+    private int randDig;
+    private int digNum;
+    private int Delay;
+    private bool isDelaying = false;
+    public GameObject digitTxt;
+
+    private void Awake()
+    {
+        // digNum = GameObject.Find("GameManager").GetComponent<GameManager>().DigNumGetter();
+        // Delay = GameObject.Find("GameManager").GetComponent<GameManager>().DelayGetter();
+
+        digNum = 3;
+        Delay = 1;
+
+        digitTxt.GetComponent<Text>().text = String.Format("{0}", digNum);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (currIndex < digNum)
+        {
+            if (! isDelaying)
+            {
+                randDig = rnd.Next(0, 9);
+                // TODO append to list
+                // display on screen
+                digitTxt.GetComponent<Text>().text = String.Format("{0}", randDig);
+                // play sound
+                // increase index
+                currIndex++;
+                // delay
+                isDelaying = true;
+                Invoke("EndDelay", readingTime + Delay);
+            }
+        }
+    }
+
+    private void EndDelay()
+    {
+        isDelaying = false;
+    }
+    
+    
+}
