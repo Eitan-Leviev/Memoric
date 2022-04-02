@@ -6,11 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class sceneManager : MonoBehaviour
 {
-    private void Awake()
-    {
-        // print("scene awake");
-    }
-
     public void LoadRandomizeScene()
     {
         int digNum = GetComponent<GameManager>().GetDigitsFromField();
