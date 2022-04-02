@@ -26,7 +26,7 @@ public class Randomize : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager");
         
-        digNum = gameManager.GetComponent<GameManager>().DigNumGetter();
+        digNum = gameManager.GetComponent<GameManager>().DigitsGetter();
         Delay = gameManager.GetComponent<GameManager>().DelayGetter();
     }
 

@@ -1,3 +1,8 @@
+readme:
+to push -
+use githyub->repository->open in command prompt
+an then use - git push
+
 # making mobile apps
 
 https://www.youtube.com/watch?v=sf9_ingF57s
