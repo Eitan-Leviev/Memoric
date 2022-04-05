@@ -50,9 +50,16 @@ public class Test : MonoBehaviour
         {
             enablePressing = false;
             
-            // optional : back to setup scene after endTestTime sec.
+            // optional : back to setup scene after endTestTime seconds
             Invoke(nameof(LoadSetupScene), endTestTime);
         }
+        
+        // deal record
+        if (currCorrectNumber == currNumPressed)
+        {
+            gameManager.GetComponent<GameManager>().AddScore();
+        }
+        
         return currCorrectNumber == currNumPressed;
     }
 

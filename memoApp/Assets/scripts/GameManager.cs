@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviour
     
     // randomize
     private List<int> randomList;
+    
+    // records
+    private int score = 0;
+    public static bool BeatRecordIndicator = false; // indicates if player had bitten the best record in current game
 
     private void Awake()
     {
@@ -109,18 +113,36 @@ public class GameManager : MonoBehaviour
         return -1;
     }
 
+    public void AddScore()
+    {
+        score++;
+        
+        // if player had bitten the best record
+        if (score > PlayerPrefs.GetInt("BestRecord", 0))
+        {
+            PlayerPrefs.SetInt("BestRecord", score); // update best record
+            BeatRecordIndicator = true; // indicate that record had been bitten
+        }
+    }
+
+    public int RecordGetter()
+    {
+        return PlayerPrefs.GetInt("BestRecord", 0);
+    }
+
     public void ClearGame()
     {
-        // Clear input
+        // Clear fields
         randomList = new List<int>();
-        digNum = 0;
-        delay = -1;
+        digNum = 1;
+        delay = 0;
+        score = 0;
         // reference all game objects
         var canvas = GameObject.Find("Canvas");
         startButton = canvas.transform.Find("startButton").gameObject;
         digitsField = canvas.transform.Find("InputDigNum").gameObject;
         delayField = canvas.transform.Find("InputDelay").gameObject;
-        digitsText = digitsField.transform.Find("Text").gameObject.GetComponent<Text>();
-        delayText = delayField.transform.Find("Text").gameObject.GetComponent<Text>();
+        digitsText = digitsField.transform.Find("numTxt").gameObject.GetComponent<Text>();
+        delayText = delayField.transform.Find("delayTxt").gameObject.GetComponent<Text>();
     }
 }
