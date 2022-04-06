@@ -59,6 +59,11 @@ public class Test : MonoBehaviour
         {
             gameManager.GetComponent<GameManager>().AddScore();
         }
+        else
+        {
+            // wrong sound
+            GetComponent<AudioSource>().Play();
+        }
         
         return currCorrectNumber == currNumPressed;
     }

@@ -8,6 +8,7 @@ public class BestRecord : MonoBehaviour
 {
     public Text recordTxt;
     private GameObject gameManager;
+    public GameObject scoreTxtDisplay;
 
     private void Start()
     {
@@ -19,9 +20,11 @@ public class BestRecord : MonoBehaviour
         if (GameManager.BeatRecordIndicator)
         {
             // play record sound
+            GetComponent<AudioSource>().Play();
             // play record animation
-        }
+            scoreTxtDisplay.GetComponent<Animator>().SetTrigger("recordBreak");
 
-        GameManager.BeatRecordIndicator = false;
+            GameManager.BeatRecordIndicator = false;
+        }
     }
 }

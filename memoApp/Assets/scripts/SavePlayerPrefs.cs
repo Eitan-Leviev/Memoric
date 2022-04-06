@@ -12,8 +12,6 @@ public class SavePlayerPrefs : MonoBehaviour
     {
         prefIF = GetComponent<InputField>();
         
-        print(gameObject.name);
-        
         if (gameObject.name == "InputDigNum")
         {
             PlayerPrefs.GetInt("prefNum", 1);
@@ -24,9 +22,6 @@ public class SavePlayerPrefs : MonoBehaviour
             PlayerPrefs.GetInt("prefDelay", 0);
             prefIF.text = PlayerPrefs.GetInt("prefDelay").ToString();
         }
-        
-        print(PlayerPrefs.GetInt("prefNum"));
-        print(PlayerPrefs.GetInt("prefDelay"));
     }
 
 
@@ -40,8 +35,5 @@ public class SavePlayerPrefs : MonoBehaviour
         {
             PlayerPrefs.SetInt("prefDelay", playerPref);
         }
-
-        print("changed: " + PlayerPrefs.GetInt("prefNum"));
-        print("changed: " + PlayerPrefs.GetInt("prefDelay"));
     }
 }
