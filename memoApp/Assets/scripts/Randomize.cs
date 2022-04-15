@@ -17,6 +17,7 @@ public class Randomize : MonoBehaviour
     private bool isDelaying = false;
     public GameObject digitTxt;
     private AudioSource currAS;
+    public float endMoveTime; // how much time the moving-letter animation takes
 
     private GameObject gameManager;
 
@@ -51,6 +52,7 @@ public class Randomize : MonoBehaviour
                 currIndex++;
                 // delay
                 isDelaying = true;
+                Invoke("NumAnim", readingTime + Delay - endMoveTime);
                 Invoke("EndDelay", readingTime + Delay);
             }
         }
@@ -72,6 +74,11 @@ public class Randomize : MonoBehaviour
     private void EndDelay()
     {
         isDelaying = false;
+    }
+
+    private void NumAnim()
+    {
+        digitTxt.GetComponent<Animator>().SetTrigger("move num");
     }
 
     public void LoadTestScene()
