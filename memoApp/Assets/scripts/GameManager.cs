@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public float sceneAnimTime;
+    
     private GameObject startButton;
     
     // input vars
@@ -62,6 +64,14 @@ public class GameManager : MonoBehaviour
         
         // GameObject go;
         // go.GetComponent<Button>().onClick.AddListener(gameManager.GetComponent<GameManager>().OpenKeyboard);
+    }
+
+    private void Start()
+    {
+        var canvas = GameObject.Find("Canvas");
+        var animParent = canvas.transform.Find("anim parent").gameObject;
+        animParent.GetComponent<Animator>().SetTrigger("start");
+        Invoke("ScoreAnim", sceneAnimTime);
     }
 
     // return 0 if value was not supplied
@@ -139,10 +149,19 @@ public class GameManager : MonoBehaviour
         score = 0;
         // reference all game objects
         var canvas = GameObject.Find("Canvas");
-        startButton = canvas.transform.Find("startButton").gameObject;
-        digitsField = canvas.transform.Find("InputDigNum").gameObject;
-        delayField = canvas.transform.Find("InputDelay").gameObject;
+        var animParent = canvas.transform.Find("anim parent").gameObject;
+        startButton = animParent.transform.Find("startButton").gameObject;
+        digitsField = animParent.transform.Find("InputDigNum").gameObject;
+        delayField = animParent.transform.Find("InputDelay").gameObject;
         digitsText = digitsField.transform.Find("numTxt").gameObject.GetComponent<Text>();
         delayText = delayField.transform.Find("delayTxt").gameObject.GetComponent<Text>();
+    }
+
+    private void ScoreAnim()
+    {
+        var canvas = GameObject.Find("Canvas");
+        var animParent = canvas.transform.Find("anim parent").gameObject;
+        var scoreObj = animParent.transform.Find("best record num").gameObject;
+        scoreObj.GetComponent<Animator>().SetTrigger("recordBreak");
     }
 }

@@ -7,6 +7,15 @@ using UnityEngine.UI;
 
 public class sceneManager : MonoBehaviour
 {
+    public float animTime;
+
+    private GameObject animParent;
+
+    private void Awake()
+    {
+        animParent = GameObject.Find("Canvas").transform.Find("anim parent").gameObject;
+    }
+
     public void LoadRandomizeScene()
     {
         int digNum = GetComponent<GameManager>().GetDigitsFromField();
@@ -15,13 +24,16 @@ public class sceneManager : MonoBehaviour
         if (digNum > 0 && delay >= 0)
         {
             // update player prefs
-            var digitsInputField = GameObject.Find("Canvas").transform.Find("InputDigNum").gameObject;
-            var delayInputField = GameObject.Find("Canvas").transform.Find("InputDelay").gameObject;
+            animParent = GameObject.Find("Canvas").transform.Find("anim parent").gameObject;
+            var digitsInputField = animParent.transform.Find("InputDigNum").gameObject;
+            var delayInputField = animParent.transform.Find("InputDelay").gameObject;
             digitsInputField.GetComponent<SavePlayerPrefs>().SetPlayerPrefs(digNum);
             delayInputField.GetComponent<SavePlayerPrefs>().SetPlayerPrefs(delay);
-            
+
+            // play end scene anim
+            animParent.GetComponent<Animator>().SetTrigger("end scene");
             // load randomizing scene
-            SceneManager.LoadScene("randomize");
+            Invoke("LoadRandScene", animTime);
         }
     }
 
@@ -33,5 +45,10 @@ public class sceneManager : MonoBehaviour
     public void LoadSetupScene()
     {
         SceneManager.LoadScene("setup");
+    }
+    
+    public void LoadRandScene()
+    {
+        SceneManager.LoadScene("randomize");
     }
 }
