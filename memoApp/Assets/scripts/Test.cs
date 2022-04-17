@@ -49,6 +49,9 @@ public class Test : MonoBehaviour
         if (currIndex == digNum) // if all numbers were guessed then disable pressing
         {
             enablePressing = false;
+            // deal delay record : if test is over - check if correct numbers is the record
+
+            gameManager.GetComponent<GameManager>().DelayRecord();
             
             // optional : back to setup scene after endTestTime seconds
             Invoke(nameof(LoadSetupScene), endTestTime);

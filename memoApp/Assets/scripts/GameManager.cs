@@ -131,13 +131,24 @@ public class GameManager : MonoBehaviour
         if (score > PlayerPrefs.GetInt("BestRecord", 0))
         {
             PlayerPrefs.SetInt("BestRecord", score); // update best record
+            PlayerPrefs.SetInt("BestDelay", delay); // update best record
             BeatRecordIndicator = true; // indicate that record had been bitten
         }
     }
 
-    public int RecordGetter()
+    public void DelayRecord()
     {
-        return PlayerPrefs.GetInt("BestRecord", 0);
+        // check if correct numbers is the record. if yes - sec' will be min(delay, prefs)
+        if (score == PlayerPrefs.GetInt("BestRecord", 0))
+        {
+            
+        }
+    }
+
+    public (int, int) RecordGetter()
+    {
+        return (PlayerPrefs.GetInt("BestRecord", 0), 
+            PlayerPrefs.GetInt("BestDelay", int.MaxValue));
     }
 
     public void ClearGame()
