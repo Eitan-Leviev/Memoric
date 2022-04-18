@@ -14,12 +14,14 @@ public class BestRecord : MonoBehaviour
     private void Start()
     {
         gameManager = GameObject.Find("GameManager");
+        
+        // take records from game-manager
         var numRecord = gameManager.GetComponent<GameManager>().RecordGetter().Item1;
         var delayRecord = gameManager.GetComponent<GameManager>().RecordGetter().Item2;
 
-        // display record
+        // display records
         recordTxt.text = numRecord.ToString();
-        if (delayRecord < int.MaxValue) { recordDelayTxt.text = delayRecord.ToString(); } // if that is not the first play of the player
+        recordDelayTxt.text = delayRecord < int.MaxValue ? delayRecord.ToString() : "-";
         
         if (GameManager.BeatRecordIndicator)
         {
@@ -30,5 +32,11 @@ public class BestRecord : MonoBehaviour
 
             GameManager.BeatRecordIndicator = false;
         }
+    }
+
+    public void DisplayRecords()
+    {
+        recordTxt.text = "0";
+        recordDelayTxt.text = "-";
     }
 }

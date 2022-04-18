@@ -46,18 +46,8 @@ public class Test : MonoBehaviour
     {
         currCorrectNumber = gameManager.GetComponent<GameManager>().ListRandomAccess(currIndex);
         currIndex++;
-        if (currIndex == digNum) // if all numbers were guessed then disable pressing
-        {
-            enablePressing = false;
-            // deal delay record : if test is over - check if correct numbers is the record
-
-            gameManager.GetComponent<GameManager>().DelayRecord();
-            
-            // optional : back to setup scene after endTestTime seconds
-            Invoke(nameof(LoadSetupScene), endTestTime);
-        }
         
-        // deal record
+        // first deal record
         if (currCorrectNumber == currNumPressed)
         {
             gameManager.GetComponent<GameManager>().AddScore();
@@ -68,6 +58,19 @@ public class Test : MonoBehaviour
             GetComponent<AudioSource>().Play();
         }
         
+        // then if test finished :
+        if (currIndex == digNum)
+        {
+            enablePressing = false;
+            
+            // deal delay record : if test is over - check if correct numbers is the record -
+            // if so - update 'delay' accordingly
+            gameManager.GetComponent<GameManager>().DelayRecord();
+            
+            // optional : back to setup scene after endTestTime seconds
+            Invoke(nameof(LoadSetupScene), endTestTime);
+        }
+
         return currCorrectNumber == currNumPressed;
     }
 

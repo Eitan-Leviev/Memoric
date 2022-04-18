@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class sceneManager : MonoBehaviour
 {
-    public float animTime;
+    public float sceneEndAnimTime;
 
     private GameObject animParent;
 
@@ -33,7 +33,7 @@ public class sceneManager : MonoBehaviour
             // play end scene anim
             animParent.GetComponent<Animator>().SetTrigger("end scene");
             // load randomizing scene
-            Invoke("LoadRandScene", animTime);
+            Invoke("LoadRandScene", sceneEndAnimTime);
         }
     }
 

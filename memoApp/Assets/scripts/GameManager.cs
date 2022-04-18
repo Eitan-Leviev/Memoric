@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public float sceneAnimTime;
+    public float sceneStartAnimTime;
     
     private GameObject startButton;
     
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     // records
     private int score = 0;
     public static bool BeatRecordIndicator = false; // indicates if player had bitten the best record in current game
+    private int theRecord; // for debug
 
     private void Awake()
     {
@@ -64,6 +65,8 @@ public class GameManager : MonoBehaviour
         
         // GameObject go;
         // go.GetComponent<Button>().onClick.AddListener(gameManager.GetComponent<GameManager>().OpenKeyboard);
+        
+        theRecord = PlayerPrefs.GetInt("BestRecord", 0);
     }
 
     private void Start()
@@ -71,7 +74,7 @@ public class GameManager : MonoBehaviour
         var canvas = GameObject.Find("Canvas");
         var animParent = canvas.transform.Find("anim parent").gameObject;
         animParent.GetComponent<Animator>().SetTrigger("start");
-        Invoke("ScoreAnim", sceneAnimTime);
+        Invoke("ScoreAnim", sceneStartAnimTime);
     }
 
     // return 0 if value was not supplied
@@ -131,17 +134,21 @@ public class GameManager : MonoBehaviour
         if (score > PlayerPrefs.GetInt("BestRecord", 0))
         {
             PlayerPrefs.SetInt("BestRecord", score); // update best record
-            PlayerPrefs.SetInt("BestDelay", delay); // update best record
+            PlayerPrefs.SetInt("BestDelay", delay); // update best record delay
             BeatRecordIndicator = true; // indicate that record had been bitten
         }
     }
 
     public void DelayRecord()
     {
-        // check if correct numbers is the record. if yes - sec' will be min(delay, prefs)
+        // check if correct numbers is the record.
+        // if so - set the delay-record accordingly
         if (score == PlayerPrefs.GetInt("BestRecord", 0))
         {
-            
+            if (delay < PlayerPrefs.GetInt("BestDelay", int.MaxValue))
+            {
+                PlayerPrefs.SetInt("BestDelay", delay);
+            }
         }
     }
 
@@ -174,5 +181,12 @@ public class GameManager : MonoBehaviour
         var animParent = canvas.transform.Find("anim parent").gameObject;
         var scoreObj = animParent.transform.Find("best record num").gameObject;
         scoreObj.GetComponent<Animator>().SetTrigger("recordBreak");
+    }
+
+    public void ResetRecord()
+    {
+        // set to default
+        PlayerPrefs.SetInt("BestRecord", 0);
+        PlayerPrefs.SetInt("BestDelay", int.MaxValue);
     }
 }
