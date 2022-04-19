@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class NumberPressed : MonoBehaviour
 {
+    private GameObject gameManager;
+
     private GameObject myCanvas;
 
     private int pressedNum;
@@ -18,6 +20,8 @@ public class NumberPressed : MonoBehaviour
 
     private void Awake()
     {
+        gameManager = GameObject.Find("GameManager");
+
         myCanvas = GameObject.Find("Canvas");
 
         rightColorObj = GameObject.Find("green");
@@ -33,6 +37,8 @@ public class NumberPressed : MonoBehaviour
         {
             // convert to int
             pressedNum = int.Parse(gameObject.name);
+            // append to answers list
+            gameManager.GetComponent<GameManager>().AddToAnswersList(pressedNum);
             // update curr number
             myCanvas.GetComponent<Test>().SetCurrNumPressed(pressedNum);
             // check if user is right or wrong

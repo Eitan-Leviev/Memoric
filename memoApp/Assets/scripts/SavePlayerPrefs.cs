@@ -8,19 +8,22 @@ public class SavePlayerPrefs : MonoBehaviour
 {
     private InputField prefIF;
 
+    public int defaultDigNim;
+    public int defaultDelay;
+
     private void Awake()
     {
         prefIF = GetComponent<InputField>();
         
         if (gameObject.name == "InputDigNum")
         {
-            PlayerPrefs.GetInt("prefNum", 1);
-            prefIF.text = PlayerPrefs.GetInt("prefNum").ToString();
+            // PlayerPrefs.GetInt("prefNum", 1);
+            prefIF.text = PlayerPrefs.GetInt("prefNum", defaultDigNim).ToString();
         }
         else
         {
-            PlayerPrefs.GetInt("prefDelay", 0);
-            prefIF.text = PlayerPrefs.GetInt("prefDelay").ToString();
+            // PlayerPrefs.GetInt("prefDelay", 0);
+            prefIF.text = PlayerPrefs.GetInt("prefDelay", defaultDelay).ToString();
         }
     }
 

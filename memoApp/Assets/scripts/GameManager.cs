@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour
     
     // randomize
     private List<int> randomList;
-    
+    private List<int> answersList;
+
     // records
     private int score = 0;
     public static bool BeatRecordIndicator = false; // indicates if player had bitten the best record in current game
@@ -114,6 +115,11 @@ public class GameManager : MonoBehaviour
     {
         randomList.Add(numToAdd);
     }
+    
+    public void AddToAnswersList(int numToAdd)
+    {
+        answersList.Add(numToAdd);
+    }
 
     // return -1 if index out of range
     public int ListRandomAccess(int index)
@@ -121,6 +127,17 @@ public class GameManager : MonoBehaviour
         if (index >= 0 && index <= digNum)
         {
             return randomList[index];
+        }
+
+        return -1;
+    }
+    
+    // return -1 if index out of range
+    public int AnswersListRandomAccess(int index)
+    {
+        if (index >= 0 && index <= digNum)
+        {
+            return answersList[index];
         }
 
         return -1;
@@ -162,6 +179,7 @@ public class GameManager : MonoBehaviour
     {
         // Clear fields
         randomList = new List<int>();
+        answersList = new List<int>();
         digNum = 1;
         delay = 0;
         score = 0;

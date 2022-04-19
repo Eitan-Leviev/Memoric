@@ -391,6 +391,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 197256387dd01a441aca3136bf32a865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultDigNim: 8
+  defaultDelay: 0
 --- !u!1 &163528559
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,6 +2163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 197256387dd01a441aca3136bf32a865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultDigNim: 8
+  defaultDelay: 0
 --- !u!1 &1663428750
 GameObject:
   m_ObjectHideFlags: 0

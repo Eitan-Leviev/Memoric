@@ -10,16 +10,20 @@ public class sceneManager : MonoBehaviour
     public float sceneEndAnimTime;
 
     private GameObject animParent;
-
+    
     private void Awake()
     {
-        animParent = GameObject.Find("Canvas").transform.Find("anim parent").gameObject;
+        // animParent = GameObject.Find("Canvas").transform.Find("anim parent").gameObject;
+        var animParentTransform = GameObject.Find("Canvas").transform.Find("anim parent");
+        if (animParentTransform)
+        { animParent = animParentTransform.gameObject; }
     }
 
     public void LoadRandomizeScene()
     {
-        int digNum = GetComponent<GameManager>().GetDigitsFromField();
-        int delay = GetComponent<GameManager>().GetDelayFromField();
+        var manager = GameObject.Find("GameManager");
+        int digNum = manager.GetComponent<GameManager>().GetDigitsFromField();
+        int delay = manager.GetComponent<GameManager>().GetDelayFromField();
         // check if 2 values are supplied and valid
         if (digNum > 0 && delay >= 0)
         {
@@ -31,7 +35,9 @@ public class sceneManager : MonoBehaviour
             delayInputField.GetComponent<SavePlayerPrefs>().SetPlayerPrefs(delay);
 
             // play end scene anim
-            animParent.GetComponent<Animator>().SetTrigger("end scene");
+            var animParentAnimator = animParent.GetComponent<Animator>();
+            if (animParentAnimator)
+            { animParentAnimator.SetTrigger("end scene"); }
             // load randomizing scene
             Invoke("LoadRandScene", sceneEndAnimTime);
         }

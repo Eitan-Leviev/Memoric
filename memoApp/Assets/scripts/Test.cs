@@ -68,7 +68,7 @@ public class Test : MonoBehaviour
             gameManager.GetComponent<GameManager>().DelayRecord();
             
             // optional : back to setup scene after endTestTime seconds
-            Invoke(nameof(LoadSetupScene), endTestTime);
+            Invoke(nameof(LoadFeedbackScene), endTestTime);
         }
 
         return currCorrectNumber == currNumPressed;
@@ -82,5 +82,10 @@ public class Test : MonoBehaviour
     public void LoadSetupScene()
     {
         SceneManager.LoadScene("setup");
+    }
+    
+    public void LoadFeedbackScene()
+    {
+        SceneManager.LoadScene("feedback");
     }
 }
