@@ -6,14 +6,18 @@
   </h1>
 <h3 align="center">  
   
-Noumeric - practice your numeric memory.
+Noumeric   -   improve your numeric memorizing ability
   </h3> 
 
 ## General
 
-This mobile app is a personal project aiming to help myself practicing advanced memory techniques that are taught by the international memory expert Eran Katz.
+This mobile app is developed for a personal porpuse -
+to easily and independently practice some advanced memory techniques
+that I learned from the international memory expert Eran Katz.
 
-In the future, the app will also support a practice of imagery memory, dates, phone numbers and more . In addition, it will be adjusted to help everyone :
+In the future, this app will also support a practice of imagery memory, dates, phone numbers and more.
+
+In addition, it will be adjusted to help everyone :
 - Children who want to enhance cognitive skills
 - Memory enthusiasts who want to proceed to the next level
 - Adults who want to keep the mind sharp
@@ -25,10 +29,3 @@ In the future, the app will also support a practice of imagery memory, dates, ph
  <img src="images/contact_2.jpg" width="200"/>
  <img src="images/new_contact.jpg" width="200"/>
 </p>
-
-## Teammates 
-- Ohad Klein
-- Eitan Leviev
-- Ethan Glick
-- Aviel Raclaw
-- Avi Kfir
