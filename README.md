@@ -29,6 +29,6 @@ In addition, it will be adjusted to help everyone :
  <img src="images/3.jpg" width="200"/>
 <p align="center">
  <img src="images/4.jpg" width="200"/>
-	<img src="images/5.jpg" width="200"/>
-	<img src="images/6.jpg" width="200"/>
+<img src="images/5.jpg" width="200"/>
+<img src="images/6.jpg" width="200"/>
 </p>
