@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -34,10 +35,13 @@ public class GameManager : MonoBehaviour
     // records
     private int score = 0;
     public static bool BeatRecordIndicator = false; // indicates if player had bitten the best record in current game
+    public static bool Sound = true; // indicates if sound is on/off
     private int theRecord; // for debug
 
     private void Awake()
     {
+        // Time.timeScale = 0.5f;
+        
         // do not destroy GameManager
         
         var gameManagers = GameObject.FindGameObjectsWithTag("GameManager");
@@ -62,10 +66,11 @@ public class GameManager : MonoBehaviour
         
         startButton.GetComponent<Button>().onClick.AddListener(GetComponent<sceneManager>().LoadRandomizeScene);
         
-        // enable Keyboard in mobile
-        
+        // control Keyboard in mobile
+
         // GameObject go;
-        // go.GetComponent<Button>().onClick.AddListener(gameManager.GetComponent<GameManager>().OpenKeyboard);
+        // digitsField.GetComponent<Button>().onClick.AddListener(gameManager.GetComponent<GameManager>().OpenKeyboard);
+        // digitsField.GetComponent<EventTrigger>().OnPointerClick(new PointerEventData(eventSystem: EventSystem.current));
         
         theRecord = PlayerPrefs.GetInt("BestRecord", 0);
     }
@@ -108,7 +113,7 @@ public class GameManager : MonoBehaviour
 
     public void OpenKeyboard()
     {
-        keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
+        keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.PhonePad);
     }
 
     public void AddToRandomList(int numToAdd)

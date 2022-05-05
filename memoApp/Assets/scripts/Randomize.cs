@@ -18,6 +18,11 @@ public class Randomize : MonoBehaviour
     public GameObject digitTxt;
     private AudioSource currAS;
     public float endMoveTime; // how much time the moving-letter animation takes
+    
+    private GameObject playPauseToggleObj;
+
+    public Sprite playSprite;
+    public Sprite pauseSprite;
 
     private GameObject gameManager;
 
@@ -27,6 +32,8 @@ public class Randomize : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager");
         
+        playPauseToggleObj = GameObject.Find("/Canvas/animParent/play - pause/Background");
+        
         digNum = gameManager.GetComponent<GameManager>().DigitsGetter();
         Delay = gameManager.GetComponent<GameManager>().DelayGetter();
     }
@@ -34,6 +41,10 @@ public class Randomize : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown("space"))
+        {
+            GetComponent<AudioSource>().Play();
+        }
         // suspension ?
 
         if (currIndex < digNum)
@@ -79,15 +90,28 @@ public class Randomize : MonoBehaviour
     private void NumAnim()
     {
         digitTxt.GetComponent<Animator>().SetTrigger("move num");
+        GetComponent<AudioSource>().Play();
     }
 
     public void LoadTestScene()
     {
-        SceneManager.LoadScene("Test");
+        if (currIndex == digNum)
+        {
+            SceneManager.LoadScene("Test");
+        }
     }
     
     public void LoadSetupScene()
     {
         SceneManager.LoadScene("setup");
+    }
+    
+    public void PlayPauseToggle()
+    {
+        // switch sprites
+        playPauseToggleObj.GetComponent<Image>().sprite =
+            Time.timeScale == 0 ? pauseSprite : playSprite;
+        // play - pause
+        Time.timeScale = Time.timeScale == 0 ? 1 : 0;
     }
 }

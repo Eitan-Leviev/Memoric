@@ -15,11 +15,15 @@ public class Test : MonoBehaviour
     private int currCorrectNumber;
     
     private GameObject gameManager;
-    
+
     // colors
     private GameObject regularColorObj;
     private Color regularColor;
-    
+
+    [SerializeField] private AudioSource wrongSound;
+    [SerializeField] private AudioSource rightSound;
+
+
     // flags
     private bool enablePressing = true;
 
@@ -51,11 +55,13 @@ public class Test : MonoBehaviour
         if (currCorrectNumber == currNumPressed)
         {
             gameManager.GetComponent<GameManager>().AddScore();
+            rightSound.Play();
         }
         else
         {
             // wrong sound
-            GetComponent<AudioSource>().Play();
+            // GetComponent<AudioSource>().Play();
+            wrongSound.Play();
         }
         
         // then if test finished :
