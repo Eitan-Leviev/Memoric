@@ -20,7 +20,6 @@ public class Toggle : MonoBehaviour
 
     public void OnClick()
     {
-        print("ב");
         // swap sprites
         GetComponent<Image>().sprite =  GameManager.Sound ? sprite2 : sprite1;
         al.enabled = ! al.enabled;

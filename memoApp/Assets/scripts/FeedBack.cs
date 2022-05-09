@@ -11,10 +11,10 @@ public class FeedBack : MonoBehaviour
     private Vector2 newSize;
 
     // control content
-    private float xStart = -200;
-    private float yStart = 100;
-    // private float xStart = -400;
-    // private float yStart = -300;
+    // private float xStart = -200;
+    // private float yStart = 100;
+    private float xStart = -400;
+    private float yStart = -300;
     private float xDelta = 200;
     private float yDelta = 300;
     private int rows;
@@ -26,10 +26,6 @@ public class FeedBack : MonoBehaviour
     
     private void Awake()
     {
-# if UNITY_ANDROID
-        xStart = -400;
-        yStart = -300;
-# endif
         var itemsNum = GameObject.Find("GameManager").GetComponent<GameManager>().DigitsGetter();
         rows = (int) Math.Ceiling(itemsNum / (float) cols);
         
