@@ -12,14 +12,14 @@ Noumeric   -   improve your numeric memorizing ability
 ## General
 
 This mobile app is developed for a personal purpose -
-to easily practice advanced memory techniques
-that I learned from the international memory expert Eran Katz.
+to easily practice advanced memory techniques,
+taught by the memory expert Eran Katz.
 
-In the future, this app will also support speach recognition, different languages, a practice of imagery memory, dates, phone numbers and more.
+In the future, this app will also support speach recognition, different languages, imagery memory, dates, faces, phone numbers, pi and more.
 
 In addition, it will be adjusted to help everyone :
 - Children who want to enhance cognitive skills
-- Memory enthusiasts who want to proceed to the next level
+- Professional memory competitors
 - Adults who want to keep the mind sharp
   
 ## Screenshots
