@@ -11,7 +11,7 @@ Memoric
 
 ## General
 
-This mobile app was developed using C# and Unity.
+This mobile app was developed using C# and Unity.  
 It was made for a personal reason -
 to easily practice advanced memory techniques,
 taught by the memory expert Eran Katz.
