@@ -17,7 +17,8 @@ to easily practice advanced memory techniques,
 taught by the memory expert Eran Katz.
 
 Currently, this app supports only a practice of numeric memory.  
-In the future, it will support also physical items, imagery memory, dates, people's faces, phone numbers, Pi, flags, countries, capitals, presidents and more.  
+In the future, it will support also physical items, imagery memory, dates,   
+people's faces, phone numbers, Pi, flags, countries, capitals, presidents and more.  
 In addition it will support speach recognition to enable practicing at the roads,  
 along with different languages.
 
