@@ -11,21 +11,16 @@ Memoric
 
 ## General
 
-This mobile app was developed using C# and Unity.  
-It was made for a personal reason -
-to easily practice advanced memory techniques,  
-taught by the memory expert Eran Katz.
+This mobile app was developed for a personal reason -
+to easily practice some advanced memory techniques.
 
 Currently, this app supports only a practice of numeric memory.  
-In the future, it will support also physical items, imagery memory, dates,   
-people's faces, phone numbers, Pi, flags, countries, capitals, presidents and more.  
-In addition it will support speach recognition to enable practicing at the roads,  
-along with different languages.
+In the future, it will support also imagery memory.
+Furthermore, it will enable to interactively memorize important numbers
+for example: phone numbers, π digits, credit cards, passwords etc.
 
-In addition, it will be adjusted to help everyone, in any level :
-- Children who want to enhance cognitive skills
-- Professional memory competitors
-- Adults who want to keep the mind sharp
+Lastly, it will support speach recognition to enable practicing at the roads,  
+along with different languages.
   
 ## Screenshots
 <p align="center">
