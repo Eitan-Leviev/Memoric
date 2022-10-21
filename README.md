@@ -11,13 +11,12 @@ Memoric
 
 ## General
 
-This mobile app was developed for a personal reason -  
-to easily practice some advanced memory techniques.
+"Memoric" is an Android mobile app that was developed to easily practice memory techniques.
 
-Currently, this app supports only a practice of numeric memory.  
+Currently, Memoric supports only numerical memory.  
 In the future, it will support also imagery memory.  
-Furthermore, it will enable to interactively memorize important numbers  
-for example: phone numbers, π digits, credit cards, passwords etc.
+Furthermore, it will enable to interactively memorize User's predetermined numbers  
+for example: phone numbers, π digits, important dates, credit cards, passwords etc.
 
 Lastly, it will support speach recognition to enable practicing at the roads,  
 along with different languages.
