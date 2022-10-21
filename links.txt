@@ -1,8 +1,3 @@
-readme:
-to push -
-use githyub->repository->open in command prompt
-an then use - git push
-
 # making mobile apps
 
 https://www.youtube.com/watch?v=sf9_ingF57s
@@ -54,19 +49,13 @@ https://www.storyblocks.com/audio/search/numbers+sound+effect?media-type=sound-e
 תוכנת הקראה בעברית!! חינמי, אבל לרשומים. א-ב-ל כשמורידים שמע, זה עם צלילי רקע
 https://app.almareader.com/
 
-
-
 ***
 
-ויתרתי על גיבוי בגיט. לא מצליח לגבה פרוייקט יוניטי בגיט למרות שכל ההגדרות מוגדרות כמו שצריך. מופיעות שגיאות
 
-כנראה הופעת מקלדת תעבוד רק אחרי ייצוא אז בינתיים ממשיך את האפליקציה בעיקר דרך המחשב
-
-
-
-***
 
 בעיות:
+
+כנראה הופעת מקלדת תעבוד רק אחרי ייצוא אז בינתיים ממשיך את האפליקציה בעיקר דרך המחשב
 
 מאורע של כפתור מתאפס כאשר יש טעינת הסצנה מחדש
 לכן כפתור "בית" לא יכול להיות מושמש כרגע
